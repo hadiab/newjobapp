@@ -50,7 +50,7 @@ Rails.application.configure do
       domain: 'localhost:3000',
       authentication: :plain,
       enable_starttls_auto: true,
-      user_name: 'hipro4d@gmail.com',
-      password: 'hadipro050'
+      user_name: ENV["GMAIL_USERNAME"],
+      password: ENV["GMAIL_PASSWORD"]
   }
 end
