@@ -20,8 +20,9 @@ gem 'font-awesome-rails'
 gem 'mail_form'
 gem 'simple_form'
 
-group :production do
+group :production, :staging do
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :development, :test do
