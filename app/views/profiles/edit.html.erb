@@ -1,0 +1,44 @@
+# encoding: utf-8
+<div class="clearfix"></div>
+
+<h1>تعديل البرفايل الشخصي</h1>
+
+<% if @profile.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2><%= pluralize(@profile.errors.count, "error") %></h2>
+
+      <ul>
+        <% @profile.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<%= form_for @profile, html: { multipart: true } do |f| %>
+    <div class="form-group">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :location %>
+      <%= f.text_field :location, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :telephone %>
+      <%= f.text_field :telephone, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :info %>
+      <%= f.text_area :info, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :file %>
+        <%= f.file_field :file %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit class: 'btn btn-primary' %>
+    </div>
+<% end %>

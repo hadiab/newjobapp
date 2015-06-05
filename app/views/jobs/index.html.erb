@@ -1,0 +1,93 @@
+# encoding: utf-8
+<div class="clearfix"></div>
+
+<div class="row">
+
+    <div class="col-md-8">
+
+        <% if @jobs.any? %>
+
+            <% @jobs.each do |job| %>
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">
+                        <h4><b><%= job.title %></b></h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3 text-center">
+                                <p><span>أخر تحديث :  </span><%= time_ago_in_words(job.updated_at) %></p>
+                                <hr>
+                                <%= link_to send_path(job.id), class: 'btn btn-primary btn-block btn-sm' do %>
+                                    <%= fa_icon 'send' %>
+                                    <span>أرسل</span>
+                                <% end %>
+                            </div>
+                            <div class="col-md-6 panel-mid text-right">
+                                <p>
+                                    <b>المتطلبات</b>
+                                    <%= simple_format(job.require) %>
+                                </p>
+                                <p>
+                                    <b>الوصف</b>
+                                    <%= simple_format(job.description) %>
+                                </p>
+                            </div>
+                            <div class="col-md-3 text-right">
+                                <p>
+                                    <b>المنطقة</b>
+                                    <span class="pull-left"><%= job.location %></span>
+                                </p>
+                                <p>
+                                    <b>الاجر</b>
+                                    <span class="pull-left"><%= number_to_currency(job.salary, precision: 1, unit: "\u20AA") %></span>
+                                </p>
+                                <p>
+                                    <b>الفئة</b>
+                                    <span class="pull-left label label-primary"><%= link_to job.category.name, jobs_path(category: job.category.name) %></span>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            <% end %>
+
+        <% else %>
+            <div class="panel panel-default">
+                <div class="panel-body text-center">
+                    <h4>لا يوجد اي عمل حاليا </h4>
+                </div>
+            </div>
+        <% end %>
+
+    </div>
+
+    <!-- Rigth Panel -->
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading text-center">
+                <h4><b>فئات</b></h4>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item text-right">
+                    <%= link_to jobs_path do %>
+                        <span>الكل</span>
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <% end %>
+                </li>
+                <% Category.all.each do |category| %>
+                    <li class="list-group-item text-right">
+                        <%= link_to jobs_path(category: category.name) do %>
+                            <%= category.name %>
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <% end %>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+
+
+</div>
+
+

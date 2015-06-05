@@ -1,0 +1,155 @@
+/*
+ *= require_self
+ */
+
+/* Font */
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+
+/* Var */
+$red: #b90504;
+$black: #594A41;
+
+
+/* Sass Var */
+/* Body =============================================================*/
+$brand-primary: $red;
+$body-bg: #fbfbfb;
+$text-color: $black;
+$link-hover-decoration: none;
+
+/* Navbar ===========================================================*/
+$navbar-height: 70px;
+$navbar-border-radius: 0px;
+$navbar-default-bg: #fff;
+$navbar-default-border: none;
+$navbar-default-color: $red;
+/* Links */
+$navbar-default-link-color: $black;
+$navbar-default-link-hover-color: $red;
+$navbar-default-link-active-color: $red;
+$navbar-default-link-active-bg: none;
+/* Brand */
+$navbar-default-brand-color: $black;
+$navbar-default-brand-hover-color: $red;
+/* Dropdown */
+$dropdown-link-color: $black;
+$dropdown-link-hover-color: #fff;
+$dropdown-link-hover-bg: $red;
+
+
+/* Css import =======================================================*/
+@import "normalize.css";
+@import "home.css.scss";
+@import "jobs.css.scss";
+@import "profiles.css.scss";
+@import "footer.css.scss";
+@import "contact.css.scss";
+
+@import "font-awesome";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* Custom ===========================================================*/
+/* Body */
+html,
+body {
+  margin:0;
+  padding:0;
+  height:100%;
+  font-family: 'Droid Arabic Kufi', sans-serif;
+}
+#wrapper {
+  min-height:100%;
+  position:relative;
+}
+#header {}
+#content {
+  padding-bottom:170px; /* Height of the footer element */
+}
+#footer {
+  background-color: #fff;
+  width:100%;
+  height:170px;
+  position:absolute;
+  bottom:0;
+  left:0;
+}
+
+/* Navbar */
+.navbar{
+  border-bottom: 3px solid $black;
+  margin-bottom: 0px;
+  height: 70px;
+  #logo{
+    width: 140px;
+    margin-top: 8px;
+  }
+  a{
+    font-weight: bold;
+  }
+}
+
+/* Panel */
+.panel{
+  border-radius: 0px;
+}
+
+.panel-default{
+  .panel-heading{
+    border-radius: 0px;
+    background-color: #fff;
+    color: $red;
+  }
+  border: 1px solid #ddd;
+  border-bottom: 2px solid #ddd;
+}
+
+.btn-primary, .btn-primary:active, .btn-primary:visited, .btn-primary:link{
+  background: none;
+  color: darken($black, 5%);
+  border: 3px solid $black;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 5px 30px;
+}
+
+.btn-primary:hover{
+  color: $red;
+  border: 3px solid $red;
+  background: none;
+}
+
+.label-primary{
+  a{
+    color: #fff;
+  }
+}
+
+/* Linear */
+
+
+.linear {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  height: 2px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.linear-white{
+  background: linear-gradient(90deg, rgba(100,50,20,0), #fff, rgba(100,50,20,0));
+}
+
+.linear-brown{
+  background: linear-gradient(90deg, rgba(100,50,20,0), $black, rgba(100,50,20,0));
+}
+
+.linear-sm{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 200px;
+}
+
+

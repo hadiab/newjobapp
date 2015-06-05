@@ -1,0 +1,64 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "color";
+
+.home_intro{
+  margin-top: 0px;
+  background-image: url('callout_background.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 1px;
+  min-height: 400px;
+  .intro_top{
+    margin-top: 55px;
+  }
+  .intro_title{
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .intro_label{
+    color: #fff;
+  }
+  .intro_second{
+    color: #eee;
+  }
+  .intro_bottom{
+    margin-top: 1px;
+  }
+  .btn_intro, .btn_intro:active, .btn_intro:visited{
+    margin-top: 20px;
+    padding: 5px;
+    width: 140px;
+    color: #aaa;
+    border: 3px solid #aaa;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .btn_intro:hover{
+    color: #fff;
+    border: 3px solid #fff;
+  }
+}
+
+.home_category{
+  border-top: 3px solid $black;
+  background-color: #fbfbfb;
+  min-height: 300px;
+  .cate_title{
+    margin-top: 50px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .btn_cate, .btn_cate:hover, .btn_cate:visited, .btn_cate:active{
+    color: darken($black, 5%);
+    border: 3px solid $black;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: bold;
+    width: 130px;
+  }
+}

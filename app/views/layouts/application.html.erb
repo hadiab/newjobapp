@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Newjobs</title>
+  <meat charset="UTF-8"></meat>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="wrapper">
+
+  <div id="header">
+    <%= render 'layouts/header' %>
+  </div><!-- #header -->
+
+  <div id="content">
+
+    <%= yield :home_page %>
+    <%= yield :profile_page %>
+
+    <div class="container">
+
+      <% if user_signed_in? %>
+          <% if current_user.profile.file.blank? && !current_user.admin === true %>
+              <div class="alert alert-warning text-right">
+                <p>لم تقم برفع السيرة الذاتية الخاصة بك قم برفعها الان
+                  <%= link_to 'اضغط هنا', edit_profile_path(current_user.username) %>
+                </p>
+              </div>
+          <% end %>
+      <% end %>
+
+      <%= yield %>
+
+    </div>
+
+  </div><!-- #content -->
+
+  <div id="footer">
+    <%= render 'layouts/footer' %>
+  </div><!-- #footer -->
+
+</div><!-- #wrapper -->
+
+</body>
+</html>

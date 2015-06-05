@@ -1,0 +1,65 @@
+# encoding: utf-8
+
+<%= content_for :profile_page do %>
+
+<div class="profile_inner">
+
+  <div class="container text-center">
+
+    <h1 class="profile_title">بروفايل</h1>
+
+    <div class="linear linear-white"></div>
+
+    <div class="row">
+      <div class="col-md-3 block_border text-center">
+        <h2 class="item_title"><%= current_user.username %> <h3 class="item_title"><%= @profile.last_name %></h3></h2>
+        <%= link_to 'تعديل', edit_profile_path, class: 'btn btn-profile' %>
+      </div>
+      <div class="col-md-3 block_border text-center">
+        <h3 class="item_title">معلومات عنك</h3>
+        <div class="linear linear-white linear-sm"></div>
+        <% if @profile.info.blank? %>
+            <h3><small>- لا يوجد -</small></h3>
+        <% else %>
+            <h4 class="item_title"><%= @profile.info %></h4>
+        <% end %>
+      </div>
+      <div class="col-md-3 block_border text-center">
+        <h3 class="item_title">مكان الاقامة</h3>
+        <div class="linear linear-white linear-sm"></div>
+        <% if @profile.location.blank? %>
+            <h3><small>- لا يوجد -</small></h3>
+        <% else %>
+            <h4 class="item_title"><%= @profile.location %></h4>
+        <% end %>
+
+        <h3 class="item_title">رقم الهاتف</h3>
+        <div class="linear linear-white linear-sm"></div>
+        <% if @profile.telephone.blank? %>
+            <h3><small>- لا يوجد -</small></h3>
+        <% else %>
+            <h4 class="item_title">
+              <%= fa_icon "phone", class: "fa-1x" %>
+              <%= number_to_phone(@profile.telephone, area_code: true) %>
+            </h4>
+        <% end %>
+
+      </div>
+      <div class="col-md-3 block_border text-center">
+        <h3 class="item_title">ملف السيرة الذاتية</h3>
+        <div class="linear linear-white linear-sm"></div>
+        <% if @profile.file.blank? %>
+            <h3><small>- لا يوجد -</small></h3>
+        <% else %>
+            <%= fa_icon "file-word-o", class: "fa-2x color-white" %>
+            <h4><%= link_to @profile.file.original_filename, @profile.file.url, class: 'color-white' %></h4>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+<% end %>

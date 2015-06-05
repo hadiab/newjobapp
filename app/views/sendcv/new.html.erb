@@ -1,0 +1,5 @@
+<h1>Send E-mail</h1>
+
+<h3>You send a cv to the Company that offer the job <%= @job.title %> </h3>
+
+<%= link_to 'Send', sent_path(@job.id) %>

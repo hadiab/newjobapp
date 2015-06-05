@@ -1,0 +1,75 @@
+// Place all the styles related to the profiles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "color";
+
+.profile_inner{
+  margin-top: 0px;
+  position: relative;
+  //background-color: $black;
+
+  padding: 1px;
+  min-height: 430px;
+  .profile_title{
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .block_border {
+    position: relative;
+    padding: 10px;
+    z-index: 1;
+    min-height: 220px;
+    width: 280px;
+    margin-right: 10px;
+  }
+  .block_border:after {
+    content : "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    background-color: #444;
+    opacity: 0.3;
+  }
+  .item_title{
+    color: #fff;
+  }
+  .btn-profile, .btn-profile:active, .btn-profile:visited{
+    margin-top: 50px;
+    background: none;
+    color: #ccc;
+    border: 3px solid #ccc;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px 30px;
+  }
+  .btn-profile:hover{
+    color: #fff;
+    border: 3px solid #fff;
+  }
+  .color-white{
+    color: #fff;
+  }
+}
+.profile_inner:after{
+  content : "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('profile-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  z-index: -1;
+}

@@ -1,0 +1,46 @@
+# encoding: utf-8
+<% content_for :home_page do %>
+
+<div class="home_intro">
+    <div class="container text-center">
+
+        <% if user_signed_in? %>
+            <div class="intro_top">
+                <h1 class="intro_label intro_title"><%= current_user.username %><span> أهلا بك  </span></h1>
+                <h3 class="intro_label intro_second">اعمال جديده بانتظارك</h3>
+            </div>
+            <div class="linear linear-white"></div>
+            <div class="intro_bottom">
+                <h3 class="intro_label intro_second">أبحث عن الاخر الاعمال</h3>
+                <%= link_to 'أبداء', jobs_path, class: 'btn btn_intro' %>
+            </div>
+        <% else %>
+            <div class="intro_top">
+                <h1 class="intro_label intro_title">أهلا وسهلا بكم في نيوجابز</h1>
+                <h3 class="intro_label intro_second">جد العمل المناسب لك</h3>
+            </div>
+            <div class="linear linear-white"></div>
+            <div class="intro_bottom">
+                <h3 class="intro_label intro_second">أنت لست عضو لدينا سجل الان</h3>
+                <%= link_to 'أبداء', new_user_registration_path, class: 'btn btn_intro' %>
+            </div>
+        <% end %>
+
+    </div>
+</div>
+
+<div class="home_category">
+
+    <div class="container text-center">
+        <h2 class="cate_title">فئات العمل</h2>
+        <div class="linear linear-brown"></div>
+        <% Category.all.each do |category| %>
+            <%= link_to category.name, jobs_path(category: category.name), class: 'btn btn_cate' %>
+        <% end %>
+        <%= link_to 'اخر الاعمال', jobs_path, class: 'btn btn_cate' %>
+    </div>
+</div>
+
+
+
+<% end %>

@@ -1,0 +1,69 @@
+# encoding: utf-8
+
+<nav class="navbar navbar-default">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="header_inner">
+        <%= link_to image_tag('Newjobs.svg', id:'logo'), root_path %>
+      </div>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to'الرئيسية' , root_path %></li>
+        <li><%= link_to 'اتصل بنا', contacts_path %></li>
+        <% if user_signed_in? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.username %><span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+
+                <li class="text-right">
+                  <%= link_to profile_path(current_user.username) do %>
+                      <b>بروفايل</b>
+                      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                  <% end %>
+                </li>
+
+                <li class="text-right">
+                  <%= link_to edit_user_registration_path do %>
+                      <b>اعدادات الحساب</b>
+                      <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                  <% end %>
+                </li>
+
+                <li class="divider"></li>
+
+                <% if current_user.admin === true %>
+                    <li class="text-right">
+                      <%= link_to rails_admin_path do %>
+                          <b>مسؤول</b>
+                          <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+                      <% end %>
+                    </li>
+                <% end %>
+
+                <li class="text-right">
+                  <%= link_to destroy_user_session_path, method: :delete do %>
+                      <b>تسجيل الخروج</b>
+                      <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                  <% end %>
+                </li>
+              </ul>
+            </li>
+        <% else %>
+            <li><%= link_to 'عضو جديد', new_user_registration_path %></li>
+            <li><%= link_to 'تسجيل الدخول',new_user_session_path %></li>
+        <% end %>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

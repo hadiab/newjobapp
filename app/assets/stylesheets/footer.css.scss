@@ -1,0 +1,27 @@
+@import "color";
+
+.footer{
+  margin-top: 0px;
+  padding: 15px;
+  border-top: 3px solid $black;
+  .social_icon{
+    margin-right: 10px;
+    color: $black;
+  }
+  .social_icon_twitter:hover{
+    color: #00aced;
+  }
+  .social_icon_facebook:hover{
+    color: #3b5998;
+  }
+  .social_icon_youtube:hover{
+    color: #bb0000;
+  }
+  .footer_mid{
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+  }
+  h3{
+    font-weight: bold;
+  }
+}
